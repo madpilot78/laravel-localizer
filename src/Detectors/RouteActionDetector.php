@@ -16,6 +16,6 @@ class RouteActionDetector implements Detector
     {
         $action = Config::get('localizer.route_action');
 
-        return Request::route()->getAction($action);
+        return Request::route()?->getAction($action);
     }
 }
