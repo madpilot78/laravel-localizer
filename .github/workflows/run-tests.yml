@@ -43,11 +43,11 @@ jobs:
         run: composer update --with="illuminate/support:${{ matrix.laravel }}" --with="orchestra/testbench:${{ matrix.testbench }}" --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests
-        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+        run: vendor/bin/phpunit # --coverage-clover=coverage.xml
 
-      - if: github.event_name == 'push'
-        name: Run Codacy Coverage Reporter
-        uses: codacy/codacy-coverage-reporter-action@master
-        with:
-            project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-            coverage-reports: coverage.xml
+#      - if: github.event_name == 'push'
+#        name: Run Codacy Coverage Reporter
+#        uses: codacy/codacy-coverage-reporter-action@master
+#        with:
+#            project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+#            coverage-reports: coverage.xml
